@@ -1,0 +1,48 @@
+{
+  "brandName": "AltayKimya",
+  "nav": {
+    "home": "Ana səhifə",
+    "products": "Məhsullar",
+    "categories": "Kateqoriyalar",
+    "brands": "Brendlər",
+    "searchPlaceholder": "Məhsul axtar...",
+    "cart": "Səbət",
+    "account": "Hesab"
+  },
+  "home": {
+    "heroTitle": "Avtomobil kimyası və təmizlik vasitələri",
+    "heroSubtitle": "Grass, Express by Grass və Winso brendləri — kontaktsız yuma, avtoşampun, mum və daha çoxu.",
+    "heroCta": "Kataloqa bax",
+    "categoriesTitle": "Kateqoriyalar",
+    "newProductsTitle": "Yeni məhsullar",
+    "brandsTitle": "Brendlər",
+    "viewAll": "Hamısına bax"
+  },
+  "product": {
+    "from": "başlayır",
+    "inStock": "Stokda var",
+    "outOfStock": "Stokda yoxdur",
+    "addToCart": "Səbətə at",
+    "buyNow": "İndi al",
+    "onlyLeft": "Cəmi {count} ədəd qalıb",
+    "noImage": "Şəkil yoxdur"
+  },
+  "products": {
+    "title": "Məhsullar",
+    "resultsFor": "Axtarış nəticələri",
+    "noResults": "Heç bir məhsul tapılmadı.",
+    "sort": {
+      "relevance": "Uyğunluq",
+      "newest": "Ən yeni"
+    }
+  },
+  "common": {
+    "loading": "Yüklənir...",
+    "error": "Məlumat yüklənmədi. Sonra yenidən cəhd edin.",
+    "comingSoon": "Tezliklə..."
+  },
+  "footer": {
+    "tagline": "Avtomobil kimyası və təmizlik vasitələri üzrə onlayn mağaza.",
+    "rights": "Bütün hüquqlar qorunur."
+  }
+}

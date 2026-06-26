@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<title>AltayKimya 2.0 — Texniki Plan</title>
+<style>
+  @page {
+    size: A4;
+    margin: 22mm 18mm;
+    @bottom-center { content: counter(page); }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: #1f2933;
+    font-size: 11pt;
+    line-height: 1.55;
+    margin: 0;
+  }
+  h1, h2, h3 { color: #0b3d5c; line-height: 1.25; }
+  h2 {
+    font-size: 16pt;
+    border-bottom: 2px solid #1d7fb8;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    page-break-after: avoid;
+  }
+  h3 { font-size: 12.5pt; margin-top: 18px; page-break-after: avoid; }
+  p { margin: 8px 0; }
+  ul { margin: 6px 0 6px 0; padding-left: 20px; }
+  li { margin: 3px 0; }
+  code {
+    background: #eef3f7;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-family: "Cascadia Code", Consolas, monospace;
+    font-size: 9.5pt;
+    color: #b6325a;
+  }
+  pre {
+    background: #0f2230;
+    color: #d7e6f0;
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-family: "Cascadia Code", Consolas, monospace;
+    font-size: 8.8pt;
+    line-height: 1.45;
+    overflow-x: auto;
+    white-space: pre;
+    page-break-inside: avoid;
+  }
+  pre code { background: none; color: inherit; padding: 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 10pt;
+    page-break-inside: avoid;
+  }
+  th {
+    background: #1d7fb8;
+    color: #fff;
+    text-align: left;
+    padding: 7px 9px;
+    font-weight: 600;
+  }
+  td { padding: 6px 9px; border-bottom: 1px solid #d9e2ec; vertical-align: top; }
+  tr:nth-child(even) td { background: #f4f8fb; }
+  .callout {
+    background: #fff8e6;
+    border-left: 4px solid #e0a800;
+    padding: 10px 14px;
+    margin: 14px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 10pt;
+    page-break-inside: avoid;
+  }
+  .callout.info { background: #eaf4fb; border-left-color: #1d7fb8; }
+
+  /* Cover */
+  .cover {
+    height: 247mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    page-break-after: always;
+    text-align: center;
+  }
+  .cover .badge {
+    color: #1d7fb8;
+    letter-spacing: 4px;
+    font-size: 12pt;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .cover h1 {
+    font-size: 40pt;
+    margin: 14px 0 6px;
+    color: #0b3d5c;
+  }
+  .cover .sub { font-size: 15pt; color: #52606d; margin-bottom: 40px; }
+  .cover .stack {
+    display: inline-block;
+    background: #0b3d5c;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 12pt;
+    letter-spacing: 1px;
+  }
+  .cover .meta { margin-top: 50px; color: #7b8794; font-size: 10pt; }
+  .toc ol { line-height: 1.9; font-size: 11pt; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="badge">Texniki Plan</div>
+  <h1>AltayKimya 2.0</h1>
+  <div class="sub">E-ticarət platformasının yenilənməsi</div>
+  <div class="stack">Django &nbsp;•&nbsp; Next.js (React) &nbsp;•&nbsp; PostgreSQL</div>
+  <div class="meta">
+    Hazırlanma tarixi: 26 İyun 2026<br>
+    Sənəd versiyası: 1.0
+  </div>
+</section>
+
+<!-- TOC -->
+<section class="toc">
+  <h2>Mündəricat</h2>
+  <ol>
+    <li>Arxitektura yanaşması: Headless Commerce</li>
+    <li>Texnologiya Stack-i</li>
+    <li>Backend strukturu (Django app-ları)</li>
+    <li>Verilənlər bazası sxemi</li>
+    <li>Əsas funksionallıqlar</li>
+    <li>Ödəniş və çatdırılma</li>
+    <li>Axtarış strategiyası</li>
+    <li>SEO, performans və çoxdillilik</li>
+    <li>Təhlükəsizlik</li>
+    <li>DevOps və deployment</li>
+    <li>İcra yol xəritəsi</li>
+    <li>Köhnə saytdan miqrasiya</li>
+    <li>Təsdiqlənməli qərarlar</li>
+  </ol>
+</section>
+
+<h2>Layihə haqqında</h2>
+<p><strong>AltayKimya</strong> avtomobil kimyası və təmizlik vasitələri üzrə onlayn mağazadır — kontaktsız yuma vasitələri, avtoşampunlar, ləkə təmizləyiciləri, mühərrik yuma, mum və qoruyucu vasitələr, salon/dəri təmizləyiciləri və aksesuarlar (brendlər: Grass, Express by Grass, Winso). Müştəri profili əsasən B2C (avtomobil sahibləri), həmçinin B2B potensialı (avtoyuma və detailing servisləri) mövcuddur.</p>
+<p>Bu sənəd mövcud saytın <strong>Django + Next.js + PostgreSQL</strong> stack-i ilə yenidən qurulması üçün tam texniki planı təqdim edir.</p>
+
+<h2>1. Arxitektura yanaşması: Headless Commerce</h2>
+<p>Sayt <strong>headless (decoupled)</strong> arxitektura ilə qurulur: backend və frontend tam ayrıdır və aralarında REST API ilə əlaqə saxlayırlar.</p>
+<pre><code>┌──────────────────┐      HTTPS / JSON     ┌──────────────────┐
+│   Next.js (BFF)   │ ◄───────────────────► │  Django + DRF     │
+│   React frontend  │      REST API         │  (API + Admin)    │
+└────────┬──────────┘                       └─────────┬─────────┘
+         │                                            │
+    ┌────▼─────┐                          ┌───────────▼───────────┐
+    │  CDN /    │                          │  PostgreSQL 16         │
+    │  Vercel   │                          │  Redis (cache + queue) │
+    └───────────┘                          │  Celery (workers)      │
+                                           │  Meilisearch (axtarış) │
+                                           │  S3 / Object Storage   │
+                                           └────────────────────────┘</code></pre>
+<p><strong>Niyə headless?</strong> SEO və sürət üçün Next.js SSR/ISR imkanları, gələcəkdə mobil tətbiq əlavə etmək imkanı, frontend və backend komandasının müstəqil işləməsi, və admin üçün güclü Django Admin panelindən istifadə.</p>
+
+<h2>2. Texnologiya Stack-i</h2>
+<table>
+  <tr><th>Qat</th><th>Texnologiya</th><th>Səbəb</th></tr>
+  <tr><td>Backend</td><td>Python 3.12 + Django 5.x + Django REST Framework</td><td>Sürətli development, güclü ORM, hazır admin panel</td></tr>
+  <tr><td>API stili</td><td>DRF + drf-spectacular (OpenAPI)</td><td>Standart, sənədlənən REST API</td></tr>
+  <tr><td>Frontend</td><td>Next.js 15 (App Router) + React 19 + TypeScript</td><td>SSR/ISR ilə SEO və sürət</td></tr>
+  <tr><td>Stil</td><td>Tailwind CSS + shadcn/ui</td><td>Sürətli, ardıcıl UI</td></tr>
+  <tr><td>Verilənlər bazası</td><td>PostgreSQL 16</td><td>Etibarlı, full-text search, JSONB</td></tr>
+  <tr><td>Keş və queue</td><td>Redis 7</td><td>Keşləmə, sessiya, Celery broker</td></tr>
+  <tr><td>Fon tapşırıqları</td><td>Celery</td><td>Email, ödəniş webhook-ları, hesabatlar</td></tr>
+  <tr><td>Axtarış</td><td>Meilisearch (ilk mərhələdə Postgres FTS)</td><td>Sürətli, typo-tolerant axtarış</td></tr>
+  <tr><td>Şəkillər</td><td>S3-uyğun storage + CDN (və ya Cloudinary)</td><td>Sürətli çatdırılma, avtomatik resize</td></tr>
+  <tr><td>Auth</td><td>JWT (simplejwt) və ya HttpOnly cookie sessiya</td><td>Təhlükəsiz autentifikasiya</td></tr>
+  <tr><td>Konteyner</td><td>Docker + Docker Compose</td><td>Eyni mühit hər yerdə</td></tr>
+  <tr><td>CI/CD</td><td>GitHub Actions</td><td>Avtomatik test + deploy</td></tr>
+</table>
+<div class="callout info"><strong>Alternativ qeyd:</strong> Django REST Framework əvəzinə <strong>Django Ninja</strong> (FastAPI-bənzər, type-hint əsaslı, avtomatik sənədləşmə) daha modern seçimdir. Komanda DRF-ə öyrəşməyibsə, Django Ninja tövsiyə olunur. Plan hər ikisi ilə işləyir.</div>
+
+<h2>3. Backend strukturu (Django app-ları)</h2>
+<p>Modullar ayrı Django app-lara bölünür:</p>
+<pre><code>backend/
+├── config/              # settings (base/dev/prod), urls, celery
+├── apps/
+│   ├── catalog/         # Category, Brand, Product, ProductVariant, Attribute
+│   ├── inventory/       # Stock, anbar hərəkətləri
+│   ├── cart/            # Səbət (qonaq + qeydiyyatlı)
+│   ├── orders/          # Order, OrderItem, status axını
+│   ├── payments/        # Ödəniş provayderləri (Payriff, Azericard...)
+│   ├── shipping/        # Çatdırılma zonaları, qiymət, kuryer
+│   ├── accounts/        # User, address, B2B müştəri
+│   ├── promotions/      # Endirim, kupon, kampaniya
+│   ├── reviews/         # Məhsul rəyləri və reytinq
+│   ├── content/         # Banner, blog, CMS səhifələr
+│   └── search/          # Meilisearch indeksləmə
+└── common/              # ortaq utility, permissions, pagination</code></pre>
+
+<h2>4. Verilənlər bazası sxemi (əsas modellər)</h2>
+<h3>Kataloq (catalog)</h3>
+<pre><code>Category(id, parent_id↺, name_az/ru/en, slug, image, order, is_active)
+Brand(id, name, slug, logo, description)
+Product(id, category_id, brand_id, name_az/ru/en, slug, description,
+        sku, is_active, created_at, meta_title, meta_description)
+ProductVariant(id, product_id, name, sku, price, old_price,
+        attributes(JSONB), barcode, weight, is_default)
+ProductImage(id, product_id, image, alt, order)
+Attribute(id, name, type)          # həcm (1L/5L), rəng, brend tipi
+ProductAttributeValue(product_id, attribute_id, value)</code></pre>
+<div class="callout"><strong>Niyə Variant?</strong> Avtokimyada eyni məhsul müxtəlif <strong>həcmlərdə</strong> satılır (1L, 5L, 20L, kanistr). Hər həcm ayrı qiymət və stok deməkdir — buna görə <code>ProductVariant</code> modeli mütləqdir.</div>
+
+<h3>Sifariş və səbət (cart / orders)</h3>
+<pre><code>Cart(id, user_id?, session_key?, created_at)        # qonaq + login
+CartItem(id, cart_id, variant_id, quantity)
+
+Order(id, number, user_id?, status, subtotal, discount, shipping_cost,
+      total, payment_status, shipping_address(JSONB), phone,
+      payment_method, created_at)
+OrderItem(id, order_id, variant_id, product_name, price, quantity)
+OrderStatusHistory(id, order_id, status, comment, created_at)</code></pre>
+<p><strong>Sifariş statusları:</strong> <code>pending → paid → processing → shipped → delivered → completed</code> (+ <code>cancelled</code>, <code>refunded</code>).</p>
+
+<h3>İstifadəçi (accounts)</h3>
+<pre><code>User(id, phone, email, first_name, last_name, is_b2b, ...)
+Address(id, user_id, city, district, address_line, is_default)
+B2BProfile(id, user_id, company_name, voen, discount_tier)   # B2B üçün</code></pre>
+
+<h2>5. Əsas funksionallıqlar</h2>
+<h3>Müştəri tərəfi (frontend)</h3>
+<ul>
+  <li><strong>Ana səhifə:</strong> banner slider, kateqoriyalar, populyar/yeni məhsullar, brendlər</li>
+  <li><strong>Kataloq:</strong> kateqoriya səhifələri + filtrlər (brend, qiymət aralığı, həcm, reytinq) + sıralama</li>
+  <li><strong>Məhsul səhifəsi:</strong> şəkil qalereyası, variant (həcm) seçimi, stok statusu, rəylər, oxşar məhsullar</li>
+  <li><strong>Axtarış:</strong> anlıq (instant) axtarış, typo-tolerant, avtotamamlama</li>
+  <li><strong>Səbət:</strong> qonaq səbəti (qeydiyyatsız), miqdar dəyişmə, kupon tətbiqi</li>
+  <li><strong>Checkout:</strong> çatdırılma ünvanı, çatdırılma üsulu, ödəniş üsulu seçimi</li>
+  <li><strong>Şəxsi kabinet:</strong> sifariş tarixçəsi, ünvanlar, seçilmişlər (wishlist)</li>
+  <li><strong>B2B:</strong> topdan qiymət, VÖEN ilə qeydiyyat, faktura</li>
+</ul>
+<h3>Admin tərəfi (Django Admin — fərdiləşdirilmiş)</h3>
+<ul>
+  <li>Məhsul / variant / stok idarəetməsi (kütləvi import — CSV/Excel)</li>
+  <li>Sifariş idarəetməsi və status dəyişmə</li>
+  <li>Endirim / kampaniya / kupon</li>
+  <li>Banner və CMS məzmun</li>
+  <li>Hesabatlar (satış, populyar məhsullar, stok azalması)</li>
+</ul>
+
+<h2>6. Ödəniş və çatdırılma (Azərbaycan üçün)</h2>
+<h3>Ödəniş</h3>
+<ul>
+  <li><strong>Onlayn kart ödənişi:</strong> Payriff (PAŞA Bank) və ya Azericard / Kapital Bank gateway. Payriff developer-friendly API-ə malikdir — tövsiyə olunur.</li>
+  <li><strong>Çatdırılma zamanı nağd/kart</strong> (cash on delivery) — Azərbaycanda hələ də geniş istifadə olunur.</li>
+  <li><strong>Hissə-hissə ödəniş</strong> (Birkart/Tamkart/Bolkart) — gələcək mərhələ.</li>
+</ul>
+<div class="callout"><strong>Təhlükəsizlik:</strong> Ödəniş üçün <strong>webhook + idempotency</strong> (təkrar bildirişlərə qarşı qorunma) mütləqdir. Ödəniş təsdiqi yalnız backend webhook ilə təsdiqlənməlidir — frontend redirect-ə güvənilmir.</div>
+<h3>Çatdırılma</h3>
+<ul>
+  <li>Bakı daxili / regionlar üzrə zonalı qiymət (<code>ShippingZone</code>)</li>
+  <li>Pulsuz çatdırılma həddi (məs. 50 AZN-dən yuxarı)</li>
+  <li>Kuryer inteqrasiyası (gələcəkdə)</li>
+</ul>
+
+<h2>7. Axtarış strategiyası</h2>
+<ul>
+  <li><strong>Mərhələ 1 (MVP):</strong> PostgreSQL <code>full-text search</code> + <code>pg_trgm</code> (typo-ya dözümlü). Əlavə infrastruktur tələb etmir.</li>
+  <li><strong>Mərhələ 2:</strong> <strong>Meilisearch</strong> — anlıq nəticələr, faceted filter, azərbaycan/rus dili dəstəyi, avtotamamlama. Məhsullar Celery ilə avtomatik indeksə sinxronlaşır.</li>
+</ul>
+
+<h2>8. SEO, performans və çoxdillilik</h2>
+<h3>SEO (e-ticarət üçün kritik)</h3>
+<ul>
+  <li>Next.js <strong>SSR/ISR</strong> ilə server-render edilən səhifələr</li>
+  <li>Hər məhsul/kateqoriya üçün dinamik <code>meta</code>, Open Graph, <strong>JSON-LD</strong> (Product, Offer, BreadcrumbList schema)</li>
+  <li>Avtomatik <code>sitemap.xml</code> və <code>robots.txt</code></li>
+  <li>SEO-friendly slug-lar (<code>/avtoshampun/grass-active-foam-5l</code>)</li>
+  <li>Köhnə saytdan <strong>301 redirect</strong> xəritəsi (mövcud URL reytinqini itirməmək üçün)</li>
+</ul>
+<h3>Performans</h3>
+<ul>
+  <li>Şəkillər: <code>next/image</code> ilə avtomatik resize/WebP, lazy-load</li>
+  <li>ISR ilə kataloq səhifələrinin keşlənməsi, Redis keş</li>
+  <li>Lighthouse hədəfi: <strong>90+</strong> (mobil)</li>
+</ul>
+<h3>Çoxdillilik (i18n)</h3>
+<ul>
+  <li><strong>AZ (default) + RU</strong> — Azərbaycan bazarı üçün rus dili vacibdir, EN opsional</li>
+  <li>Backend: <code>django-modeltranslation</code> və ya ayrı dil sahələri</li>
+  <li>Frontend: <code>next-intl</code></li>
+</ul>
+
+<h2>9. Təhlükəsizlik</h2>
+<ul>
+  <li>HTTPS hər yerdə, HttpOnly + Secure cookie-lər</li>
+  <li>DRF rate limiting (login, checkout, axtarış)</li>
+  <li>CSRF/CORS düzgün konfiqurasiya</li>
+  <li>Ödənişdə server-side qiymət yoxlaması (frontend qiymətə güvənilmir)</li>
+  <li>Parol hashing (Argon2), admin üçün 2FA</li>
+  <li>Mütəmadi dependency yeniləməsi (Dependabot)</li>
+</ul>
+
+<h2>10. DevOps və deployment</h2>
+<table>
+  <tr><th>Komponent</th><th>Tövsiyə</th></tr>
+  <tr><td>Frontend hosting</td><td>Vercel (Next.js üçün optimal) və ya öz VPS</td></tr>
+  <tr><td>Backend hosting</td><td>VPS (Hetzner / DigitalOcean) və ya bulud, Docker ilə</td></tr>
+  <tr><td>Verilənlər bazası</td><td>İdarə olunan PostgreSQL və ya VPS-də Docker + günlük backup</td></tr>
+  <tr><td>Şəkil / storage</td><td>S3-uyğun (AWS S3 / Cloudflare R2) + CDN</td></tr>
+  <tr><td>CI/CD</td><td>GitHub Actions: test → build → deploy</td></tr>
+  <tr><td>Monitorinq</td><td>Sentry (xətalar) + Uptime monitor + log toplama</td></tr>
+  <tr><td>Backup</td><td>Avtomatik günlük DB backup + bərpa testi</td></tr>
+</table>
+<p>Konteynerlər: <code>web (Django+Gunicorn)</code>, <code>worker (Celery)</code>, <code>beat (planlı tapşırıqlar)</code>, <code>postgres</code>, <code>redis</code>, <code>meilisearch</code>, <code>nginx</code>.</p>
+
+<h2>11. İcra yol xəritəsi (mərhələli)</h2>
+<table>
+  <tr><th>Mərhələ</th><th>Müddət</th><th>Nəticə</th></tr>
+  <tr><td>0. Hazırlıq</td><td>1 həftə</td><td>Repo qurulumu, Docker, CI/CD, dizayn təsdiqi, köhnə data ixracı</td></tr>
+  <tr><td>1. Backend əsası</td><td>2–3 həftə</td><td>Modellər, Django Admin, kataloq API, auth</td></tr>
+  <tr><td>2. Frontend əsası</td><td>2–3 həftə</td><td>Ana səhifə, kataloq, məhsul, axtarış, səbət</td></tr>
+  <tr><td>3. Checkout və ödəniş</td><td>2 həftə</td><td>Checkout axını, Payriff inteqrasiyası, sifariş emaili</td></tr>
+  <tr><td>4. Şəxsi kabinet və rəylər</td><td>1–2 həftə</td><td>Sifariş tarixçəsi, ünvanlar, wishlist, rəylər</td></tr>
+  <tr><td>5. SEO, performans, miqrasiya</td><td>1–2 həftə</td><td>JSON-LD, sitemap, 301 redirect, data köçürülməsi</td></tr>
+  <tr><td>6. QA və launch</td><td>1 həftə</td><td>Test, yük testi, soft launch, monitorinq</td></tr>
+  <tr><td>7. Mərhələ 2 (post-launch)</td><td>davamlı</td><td>Meilisearch, B2B portal, blog, hissə-hissə ödəniş</td></tr>
+</table>
+<p><strong>Ümumi MVP təxmini: ~10–14 həftə</strong> (komandanın ölçüsündən asılı).</p>
+
+<h2>12. Köhnə saytdan miqrasiya</h2>
+<ul>
+  <li>Mövcud <strong>məhsul, kateqoriya, şəkil və müştəri datasının</strong> ixracı (DB dump və ya scraping)</li>
+  <li><strong>URL xəritəsi</strong> → 301 redirect-lər (SEO reytinqini qorumaq)</li>
+  <li>Sifariş tarixçəsinin köçürülməsi (mümkünsə)</li>
+  <li>Launch öncəsi staging-də tam test</li>
+</ul>
+
+<h2>13. Təsdiqlənməli qərarlar</h2>
+<table>
+  <tr><th>#</th><th>Sual</th></tr>
+  <tr><td>1</td><td><strong>Dillər:</strong> Yalnız AZ, yoxsa AZ + RU (+ EN)?</td></tr>
+  <tr><td>2</td><td><strong>B2B:</strong> Topdan/şirkət müştəriləri üçün ayrıca qiymət və portal lazımdır, yoxsa təkcə B2C?</td></tr>
+  <tr><td>3</td><td><strong>Ödəniş:</strong> Payriff / Azericard / Kapital — bankla artıq müqaviləniz var?</td></tr>
+  <tr><td>4</td><td><strong>Hosting:</strong> Bulud (Vercel + idarə olunan DB) yoxsa öz VPS-niz?</td></tr>
+  <tr><td>5</td><td><strong>Komanda:</strong> Tək özünüz, yoxsa komanda ilə? (yol xəritəsi müddətinə təsir edir)</td></tr>
+</table>
+
+<p style="margin-top:40px; color:#7b8794; font-size:9pt; text-align:center; border-top:1px solid #d9e2ec; padding-top:12px;">
+AltayKimya 2.0 — Texniki Plan · 26 İyun 2026 · Mənbə: altaykimya.az
+</p>
+
+</body>
+</html>

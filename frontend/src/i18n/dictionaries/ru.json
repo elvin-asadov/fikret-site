@@ -1,0 +1,48 @@
+{
+  "brandName": "AltayKimya",
+  "nav": {
+    "home": "Главная",
+    "products": "Товары",
+    "categories": "Категории",
+    "brands": "Бренды",
+    "searchPlaceholder": "Поиск товаров...",
+    "cart": "Корзина",
+    "account": "Аккаунт"
+  },
+  "home": {
+    "heroTitle": "Автохимия и чистящие средства",
+    "heroSubtitle": "Бренды Grass, Express by Grass и Winso — бесконтактная мойка, автошампуни, воски и многое другое.",
+    "heroCta": "Перейти в каталог",
+    "categoriesTitle": "Категории",
+    "newProductsTitle": "Новые товары",
+    "brandsTitle": "Бренды",
+    "viewAll": "Смотреть все"
+  },
+  "product": {
+    "from": "от",
+    "inStock": "В наличии",
+    "outOfStock": "Нет в наличии",
+    "addToCart": "В корзину",
+    "buyNow": "Купить сейчас",
+    "onlyLeft": "Осталось всего {count} шт.",
+    "noImage": "Нет фото"
+  },
+  "products": {
+    "title": "Товары",
+    "resultsFor": "Результаты поиска",
+    "noResults": "Товары не найдены.",
+    "sort": {
+      "relevance": "Релевантность",
+      "newest": "Сначала новые"
+    }
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Не удалось загрузить данные. Попробуйте позже.",
+    "comingSoon": "Скоро..."
+  },
+  "footer": {
+    "tagline": "Интернет-магазин автохимии и чистящих средств.",
+    "rights": "Все права защищены."
+  }
+}
